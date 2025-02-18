@@ -12,6 +12,20 @@ Tags: flexible, responsive, e-commerce, learnpress, corporate, minimal
 
 */
 
+/* ======= ROOT VARIABLES ======= */
+:root {
+	--primary-color: #0073aa;
+	--secondary-color: #222;
+	--text-color: #333;
+	--background-color: #f8f8f8;
+	--font-family: 'Poppins', sans-serif;
+	--container-width: 90%;
+	--max-width: 1200px;
+	--header-padding: 15px 0;
+	--footer-padding: 20px 0;
+	--gap-size: 20px;
+}
+
 /* ======= RESET / NORMALIZE STYLES ======= */
 /* ======= Ensure box-sizing is set to border-box for all elements ======= */
 *,
@@ -24,11 +38,11 @@ Tags: flexible, responsive, e-commerce, learnpress, corporate, minimal
 }
 
 body {
-	font-family: inherit;
+	font-family: var(--font-family);
 	font-size: inherit;
 	line-height: inherit;
-	color: inherit;
-	background-color: inherit;
+	color: var(--text-color);
+	background-color: var(--background-color);
 }
 
 /* ======= BASIC TYPOGRAPHY ======= */
@@ -86,17 +100,86 @@ a:hover {
 	text-decoration: underline;
 }
 
-/* ======= LAYOUT HELPERS ======= */
+/* ======= HEADER STYLES ======= */
+.site-header {
+	background-color: var(--primary-color);
+	color: #fff;
+	padding: var(--header-padding);
+}
+
 .container {
-	width: 90%;
-	max-width: 1200px;
+	width: var(--container-width);
+	max-width: var(--max-width);
 	margin: 0 auto;
 }
 
+.logo a {
+	font-size: 24px;
+	font-weight: bold;
+	text-decoration: none;
+	color: #fff;
+}
+
+.nav-menu {
+	list-style: none;
+	display: flex;
+	gap: var(--gap-size);
+}
+
+.nav-menu a {
+	color: #fff;
+	text-decoration: none;
+	font-weight: bold;
+}
+
+/* ======= FOOTER STYLES ======= */
+.site-footer {
+	background-color: var(--secondary-color);
+	color: #fff;
+	text-align: center;
+	padding: var(--footer-padding);
+}
+
+.footer-widgets {
+	display: flex;
+	justify-content: center;
+	gap: var(--gap-size);
+}
+
+/* ======= GENERAL LAYOUT ======= */
+.site-main {
+	padding: 40px 0;
+}
+
+.post-list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: var(--gap-size);
+}
+
+.post-title a {
+	color: var(--primary-color);
+	text-decoration: none;
+	font-weight: bold;
+}
+
+.post-excerpt {
+	color: #555;
+}
+
+/* ======= RESPONSIVE DESIGN ======= */
+@media (max-width: 768px) {
+	.nav-menu {
+		flex-direction: column;
+		gap: 10px;
+	}
+}
+
+/* ======= LAYOUT HELPERS ======= */
 .row {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 20px;
+	gap: var(--gap-size);
 }
 
 .hidden {
