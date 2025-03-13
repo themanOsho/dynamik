@@ -18,15 +18,16 @@
 <header class="site-header">
 	<div class="container">
 		<div class="logo">
-			<a href="<?php echo esc_url( home_url( '/' ) ); ?>">
-				<?php
-				if ( has_custom_logo() ) {
-					the_custom_logo();
-				} else {
-					?>
-					<h1 class="site-title"><?php bloginfo( 'name' ); ?></h1>
-				<?php } ?>
-			</a>
+			<a href="<?php echo esc_url(home_url('/')); ?>">
+                <?php 
+                $dynamik_logo = get_theme_mod('dynamik_logo');
+                if ( $dynamik_logo ) {
+                    echo '<img src="' . esc_url( $dynamik_logo ) . '" alt="' . esc_attr( get_bloginfo('name') ) . '">';
+                } else { 
+                    echo '<h1 class="site-title">' . esc_html( get_bloginfo('name') ) . '</h1>';
+                } 
+                ?>
+            </a>
 		</div>
 		
 		<nav class="main-nav">
